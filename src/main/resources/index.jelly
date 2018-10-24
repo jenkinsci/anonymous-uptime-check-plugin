@@ -1,0 +1,4 @@
+<?jelly escape-by-default='true'?>
+<div>
+    Exposes the quiet down status at <code>/quietDownStatus/api/</code> to anyone.
+</div>
