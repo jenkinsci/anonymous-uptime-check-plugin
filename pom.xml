@@ -15,15 +15,16 @@
         <jenkins.version>2.7.3</jenkins.version>
         <java.level>7</java.level>
     </properties>
-    <name>Anonymous Uptime Check Plugin</name>
+    <name>Anonymous Uptime Check</name>
     <description>Allows unauthenticated access to check ability to run new jobs at /anonymousUptimeCheck.
         If Jenkins is quieting down, the response is a 503, otherwise a success 200 json repsonse.
         This can be used for external tools to check track uptime statics of Jenkins instance.
     </description>
     <licenses>
         <license>
-            <name>MIT License</name>
-            <url>https://opensource.org/licenses/MIT</url>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
         </license>
     </licenses>
     <!-- Assuming you want to host on @jenkinsci:
