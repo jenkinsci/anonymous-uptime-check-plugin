@@ -8,15 +8,18 @@
         <relativePath />
     </parent>
     <groupId>io.jenkins.plugins</groupId>
-    <artifactId>quiet-down-endpoint</artifactId>
+    <artifactId>anonymous-uptime-check</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>hpi</packaging>
     <properties>
         <jenkins.version>2.7.3</jenkins.version>
         <java.level>7</java.level>
     </properties>
-    <name>Quiet Down Status Plugin</name>
-    <description>Expose the quiet down status at /quietDownStatus/api/ to anyone</description>
+    <name>Anonymous Uptime Check Plugin</name>
+    <description>Allows unauthenticated access to check ability to run new jobs at /anonymousUptimeCheck.
+        If Jenkins is quieting down, the response is a 503, otherwise a success 200 json repsonse.
+        This can be used for external tools to check track uptime statics of Jenkins instance.
+    </description>
     <licenses>
         <license>
             <name>MIT License</name>

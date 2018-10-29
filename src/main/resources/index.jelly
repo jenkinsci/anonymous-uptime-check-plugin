@@ -1,4 +1,5 @@
 <?jelly escape-by-default='true'?>
 <div>
-    Exposes the quiet down status at <code>/quietDownStatus/api/</code> to anyone.
+    Allows unauthenticated access to check ability to run new jobs at <code>/anonymousUptimeCheck</code>.
+    <p>(returns 503 status if Jenkins is in quieting down)</p>
 </div>

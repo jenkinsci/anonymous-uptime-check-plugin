@@ -1,19 +1,15 @@
-package io.jenkins.plugins.quietdownendpoint;
+package io.jenkins.plugins.anonymousuptimecheck;
 
 import hudson.Extension;
-import hudson.model.Api;
 import hudson.model.UnprotectedRootAction;
 import hudson.util.HttpResponses;
 import jenkins.model.Jenkins;
 import org.kohsuke.stapler.HttpResponse;
-import org.kohsuke.stapler.export.Exported;
-import org.kohsuke.stapler.export.ExportedBean;
 
 import javax.annotation.CheckForNull;
 
 @Extension
-@ExportedBean
-public class QuietDownEndpoint implements UnprotectedRootAction {
+public class AnonymousUptimeCheck implements UnprotectedRootAction {
 
     @CheckForNull
     public String getIconFileName() {
@@ -26,20 +22,14 @@ public class QuietDownEndpoint implements UnprotectedRootAction {
     }
 
     public HttpResponse doIndex() {
-        return HttpResponses.redirectTo("api");
+        if (Jenkins.getInstance().isQuietingDown()){
+            return HttpResponses.status(503);
+        }
+        return HttpResponses.okJSON();
     }
 
     @CheckForNull
     public String getUrlName() {
-        return "quietDownStatus";
-    }
-
-    public Api getApi() {
-        return new Api(this);
-    }
-
-    @Exported
-    public boolean isQuietDown() {
-        return Jenkins.getInstance().isQuietingDown();
+        return "anonymousUptimeCheck";
     }
 }
